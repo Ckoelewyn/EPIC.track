@@ -52,5 +52,5 @@ class WorkIssues(BaseModelVersioned):
             cls.is_deleted.is_(False)
             ).order_by(
             cls.start_date.desc()
-        )
+            )
         return query.all()
