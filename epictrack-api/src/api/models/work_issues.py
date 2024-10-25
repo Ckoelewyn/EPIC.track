@@ -50,7 +50,7 @@ class WorkIssues(BaseModelVersioned):
         query = WorkIssues.query.filter(
             cls.work_id == work_id,
             cls.is_deleted.is_(False)
-            ).order_by(
+        ).order_by(
             cls.start_date.desc()
-            )
+        )
         return query.all()
