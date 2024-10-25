@@ -46,8 +46,11 @@ class WorkIssues(BaseModelVersioned):
 
     @classmethod
     def list_issues_for_work_id(cls, work_id) -> List[WorkIssues]:
-        """List all WorkIssues sorted by start_date."""
-        query = WorkIssues.query.filter(cls.work_id == work_id).order_by(
+        """List all WorkIssues sorted by start_date, filtering out WorkIssues marked as deleted in the DB"""
+        query = WorkIssues.query.filter(
+            cls.work_id == work_id,
+            cls.is_deleted.is_(False)
+            ).order_by(
             cls.start_date.desc()
         )
         return query.all()
