@@ -1137,8 +1137,8 @@ class EventService:
             .join(Action, Action.id == ActionConfiguration.action_id)
             .filter(
                 ActionConfiguration.outcome_configuration_id == outcome_id,
-                ActionConfiguration.is_active is True,
-                ActionConfiguration.is_deleted is False
+                ActionConfiguration.is_active.is_(True),
+                ActionConfiguration.is_deleted.is_(False)
             )
             .order_by(ActionConfiguration.sort_order)
             .all()
