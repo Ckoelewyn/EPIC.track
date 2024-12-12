@@ -265,7 +265,7 @@ export default function AnticipatedEAOSchedule() {
                               >
                                 <Tab label="Basic" />
                                 <Tab label="Project Description" />
-                                <Tab label="Anticipated Referral Date/Next PCP/Additional Information" />
+                                <Tab label="Anticipated Referral Date/Next PCP/Status" />
                               </Tabs>
                               <TabPanel value={selectedTab} index={0}>
                                 <Table>
@@ -392,7 +392,7 @@ export default function AnticipatedEAOSchedule() {
                                       </TableRow>
                                     )}
                                     <TableRow>
-                                      <TableCell>Additional Info</TableCell>
+                                      <TableCell>Status</TableCell>
                                       <TableCell>
                                         {item["additional_info"]}
                                       </TableCell>
