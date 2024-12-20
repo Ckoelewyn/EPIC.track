@@ -363,7 +363,9 @@ class ThirtySixtyNinetyReport(ReportFactory):
 
     def _get_valid_event_ids(self, start_date, end_date):
         """Find and return set of valid decision or high priority event ids"""
-        valid_events = db.session.query(Event).filter(
+        valid_events = db.session.query(Event).join(
+            Work, Work.id == Event.work_id
+        ).filter(
             func.coalesce(Event.actual_date, Event.anticipated_date).between(
                 start_date.date(), end_date.date()
             ),
