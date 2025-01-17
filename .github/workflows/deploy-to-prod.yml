@@ -1,5 +1,8 @@
 name: Deploy-to-Prod
 
+on:
+  workflow-dispatch:
+
 defaults:
   run:
     shell: bash
